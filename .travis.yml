@@ -17,3 +17,6 @@ script:
   - git clone git://sigrok.org/sigrok-util
   - cd sigrok-util/cross-compile/macosx
   - ./sigrok-native-macosx
+
+after_failure:
+  - cat build/libsigrok/build/test-suite.log
