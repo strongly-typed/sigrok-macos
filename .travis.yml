@@ -1,0 +1,14 @@
+language: cpp
+
+os: osx
+
+osx_image: xcode9.3
+
+before_install:
+  - brew update
+  - brew bundle --force || true # Ignore failure
+
+script:
+  - git clone git://sigrok.org/sigrok-util
+  - cd sigrok-util/cross-compile/macosx
+  - ./sigrok-native-macosx
