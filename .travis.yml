@@ -4,10 +4,10 @@ os: osx
 
 matrix:
   include:
+    - osx_image: xcode10  # OS X 10.13
     - osx_image: xcode9.3 # OS X 10.13
     - osx_image: xcode9.2 # OS X 10.12
     - osx_image: xcode8   # OS X 10.11
-    - osx_image: xcode6.4 # OS X 10.10
 
 before_install:
   - brew update
