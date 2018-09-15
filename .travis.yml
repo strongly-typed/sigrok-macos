@@ -5,24 +5,30 @@ os: osx
 matrix:
   include:
     - osx_image: xcode9.3 # OS X 10.13
-    - osx_image: xcode9.2 # OS X 10.12
-    - osx_image: xcode8   # OS X 10.11
-    - osx_image: xcode6.4 # OS X 10.10
+    # - osx_image: xcode9.2 # OS X 10.12
+    # - osx_image: xcode8   # OS X 10.11
+    # - osx_image: xcode6.4 # OS X 10.10
 
 before_install:
   - brew update
-  - brew bundle --force || true # Ignore failure
+  - brew install qt@5.5
+  # - brew bundle --force || true # Ignore failure
 
 env:
   global:
-    - LDFLAGS="-L/usr/local/opt/qt/lib"
-    - CPPFLAGS="-I/usr/local/opt/qt/include"
-    - PKG_CONFIG_PATH="/usr/local/opt/qt/lib/pkgconfig"
+    - PATH=/usr/local/opt/qt@5.5/bin:$PATH
+    - LDFLAGS="-L/usr/local/opt/qt@5.5/lib"
+    - CPPFLAGS="-I/usr/local/opt/qt@5.5/include"
+    - PKG_CONFIG_PATH="/usr/local/opt/qt@5.5/lib/pkgconfig"
 
 script:
-  - git clone git://sigrok.org/sigrok-util
-  - cd sigrok-util/cross-compile/macosx
-  - ./sigrok-native-macosx
+  - echo Hello
+  - ls -la /usr/local/opt/qt@5.5/lib
+  - ls -la /usr/local/opt/qt@5.5/include
+  - ls -la /usr/local/opt/qt@5.5/lib/pkgconfig
+  # - git clone git://sigrok.org/sigrok-util
+  # - cd sigrok-util/cross-compile/macosx
+  # - ./sigrok-native-macosx
 
 after_failure:
   - cat build/libsigrok/build/test-suite.log
