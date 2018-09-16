@@ -12,6 +12,9 @@ matrix:
 before_install:
   - brew update
   - brew bundle --force || true # Ignore failure
+  # Pin glib to version 2.56.1
+  - brew uninstall --ignore-dependencies glib
+  - brew install https://raw.githubusercontent.com/Homebrew/homebrew-core/1862782b846b3eb85d2dfe59b43345b2d703cd8f/Formula/glib.rb
 
 env:
   global:
