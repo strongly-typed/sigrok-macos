@@ -1,7 +1,7 @@
 image: ubuntu:18.04
 
 before_script:
-  - apt-get update -qq && apt-get install -y -qq \
+  - apt-get update && apt-get install -y \
     git gcc make autoconf automake libtool \
     g++ autoconf-archive \
     pkg-config libglib2.0-dev libglibmm-2.4-dev libzip-dev \
