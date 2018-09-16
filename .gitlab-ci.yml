@@ -13,7 +13,8 @@ before_script:
     libglib2.0-dev libboost-test-dev libboost-serialization-dev \ 
     libboost-filesystem-dev libboost-system-dev libqt5svg5-dev qtbase5-dev
 
-script:
+build:
+  script:
   - git clone git://sigrok.org/sigrok-util
   - cd sigrok-util/cross-compile/linux
   - ./sigrok-cross-linux
